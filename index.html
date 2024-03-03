@@ -37,22 +37,178 @@
     button:active {
       transform: scale(0.97);
     }
+
+    .container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .tree {
+      position: relative;
+      width: 50px;
+      height: 50px;
+      transform-style: preserve-3d;
+      transform: rotateX(-20deg) rotateY(30deg);
+      animation: treeAnimate 5s linear infinite;
+    }
+
+    @keyframes treeAnimate {
+      0% {
+        transform: rotateX(-20deg) rotateY(360deg);
+      }
+
+      100% {
+        transform: rotateX(-20deg) rotateY(0deg);
+      }
+    }
+
+    .tree div {
+      position: absolute;
+      top: -50px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transform: translateY(calc(25px * var(--x))) translateZ(0px);
+    }
+
+    .tree div.branch span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, #69c069, #77dd77);
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      border-bottom: 5px solid #00000019;
+      transform-origin: bottom;
+      transform: rotateY(calc(90deg * var(--i))) rotateX(30deg) translateZ(28.5px);
+    }
+
+    .tree div.stem span {
+      position: absolute;
+      top: 110px;
+      /* updated top value */
+      left: calc(50% - 7.5px);
+      width: 15px;
+      height: 50%;
+      background: linear-gradient(90deg, #bb4622, #df7214);
+      border-bottom: 5px solid #00000019;
+      transform-origin: bottom;
+      transform: rotateY(calc(90deg * var(--i))) translateZ(7.5px);
+    }
+
+    .shadow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      filter: blur(20px);
+      transform-style: preserve-3d;
+      transform: rotateX(90deg) translateZ(-65px);
+    }
   </style>
 
 </head>
 
 <body>
-  <header class="cd__intro">
-    <h1 style="font-size: 50px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"> Round 3 </h1>
-    <h3 style=" font-family:'Courier New', Courier, monospace">Pixel Prowess</h3>
+  <header class="cd__intro ">
+    <div class="head-main" style="width:90%; display:flex; justify-content:space-evenly; ">
+      <div class="container">
+        <div class="tree">
+          <div class="branch" style="--x:0">
+            <span style="--i:0;"></span>
+            <span style="--i:1;"></span>
+            <span style="--i:2;"></span>
+            <span style="--i:3;"></span>
+          </div>
+          <div class="branch" style="--x:1">
+            <span style="--i:0;"></span>
+            <span style="--i:1;"></span>
+            <span style="--i:2;"></span>
+            <span style="--i:3;"></span>
+          </div>
+          <div class="branch" style="--x:2">
+            <span style="--i:0;"></span>
+            <span style="--i:1;"></span>
+            <span style="--i:2;"></span>
+            <span style="--i:3;"></span>
+          </div>
+          <div class="branch" style="--x:3">
+            <span style="--i:0;"></span>
+            <span style="--i:1;"></span>
+            <span style="--i:2;"></span>
+            <span style="--i:3;"></span>
+          </div>
+          <div class="stem">
+            <span style="--i:0;"></span>
+            <span style="--i:1;"></span>
+            <span style="--i:2;"></span>
+            <span style="--i:3;"></span>
+          </div>
+          <span class="shadow"></span>
+        </div>
+      </div>
+      <div>
+        <h1
+          style="font-size: 50px; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
+          Round 3</h1>
+        <h3
+          style=" font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+          Pixel Prowess</h3>
+      </div>
+      <div class="container">
+        <div class="tree">
+          <div class="branch" style="--x:0">
+            <span style="--i:0;"></span>
+            <span style="--i:1;"></span>
+            <span style="--i:2;"></span>
+            <span style="--i:3;"></span>
+          </div>
+          <div class="branch" style="--x:1">
+            <span style="--i:0;"></span>
+            <span style="--i:1;"></span>
+            <span style="--i:2;"></span>
+            <span style="--i:3;"></span>
+          </div>
+          <div class="branch" style="--x:2">
+            <span style="--i:0;"></span>
+            <span style="--i:1;"></span>
+            <span style="--i:2;"></span>
+            <span style="--i:3;"></span>
+          </div>
+          <div class="branch" style="--x:3">
+            <span style="--i:0;"></span>
+            <span style="--i:1;"></span>
+            <span style="--i:2;"></span>
+            <span style="--i:3;"></span>
+          </div>
+          <div class="stem">
+            <span style="--i:0;"></span>
+            <span style="--i:1;"></span>
+            <span style="--i:2;"></span>
+            <span style="--i:3;"></span>
+          </div>
+          <span class="shadow"></span>
+        </div>
+      </div>
+
+    </div>
 
   </header>
   <div class="cd__intro" style="display:flex; justify-content:flex-start;">
     <h1 style=" font-size: 3.5rem; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin-bottom: 20px; ">
       Instructions</h1>
-    <ul style=" font-weight: 500; font-size:1.7rem; text-align: left; font-family: 'Courier New', Courier, monospace">
+    <ul
+      style="line-height: 3.5rem; font-weight: 500; font-size:1.7rem; text-align: left; font-family: 'Courier New', Courier, monospace">
       <li>The Flags are hidden in the listed images. </li>
-      <li>The flags obtained from images(Image Flags) can gain you 3pts </li>
+      <li>The Flags have a length of 6 characters starting with i followed by combination of numbers or letters.</li>
+      <li>Flag from Image 1 can gain you 3 pts,from Image 2 can gain you 4 pts, from Image 3 can gain you 5 pts </li>
+      
       <li>Think creatively and try unconventional methods or perspectives to uncover hidden flags.</li </ul>
   </div>
   <!--$%adsense%$-->
@@ -70,29 +226,28 @@
         </div>
       </div>
       <div class="grid__item">
-        <div class="card"><img class="card__img"
-            src="https://images.unsplash.com/photo-1485160497022-3e09382fb310?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2250&amp;q=80"
-            alt="Desert">
+        <div class="card"><img class="card__img" src="assets/new.jpg" alt="">
           <div class="card__content">
-            <h1 class="card__header">Misty mornings</h1>
-            <p class="card__text">Capture the stunning <strong>essence</strong> of the early morning sunrise in the
-              Californian wilderness.</p>
+            <h1 class="card__header">Utah Sunsets</h1>
+            <p class="card__text">Sunsets over the <strong>stunning</strong> Utah Canyonlands, is truly something much
+              more than incredible.</p>
 
           </div>
         </div>
       </div>
       <div class="grid__item">
-        <div class="card"><img class="card__img"
-            src="https://i0.wp.com/hacktoria.com/wp-content/uploads/2024/02/gas-attack.jpg?resize=1024%2C579&ssl=1"
-            alt="">
+        <div class="card"><img class="card__img" src="assets/unknown.png" alt="Desert">
           <div class="card__content">
-            <h1 class="card__header">Eh.. What is This?</h1>
-            <p class="card__text">Anyway the image has the potential of gaining you a flag which has the most value in
-              the entire contest</p>
+            <h1 class="card__header">ir07f9</h1>
+            <p class="card__text">
+              ȜȞȵꝏȷȺҨΨϞӘ࿔࿗ӅȪ˟॥ᛣᛕᛠᛰᛈᛤ᛫ᚆᚢᚱᚫᚾᚾᚻᛊᚷᛍᚸᚹ᛬ᛇᛒᛦᛧᛏᚥᚩᚦᚷᚲᚴᚡᚼᛂᛄᛢᛞᛏᛃᚨᛁᚳ
+              ᛧᛏᚥᚩᚦᚷᚲᚴᚡᚼᛂᛄᛢᛞᛏᛃᚨᛁᚳ
+            </p>
 
           </div>
         </div>
       </div>
+
     </div>
     <!-- END EDMO HTML (Happy Coding!)-->
   </main>
@@ -104,13 +259,13 @@
         <h3 class="card__header"
           style="margin:40px; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Submit to
           hackerrank</h3>
-        <button onclick="window.location.href = 'https://www.hackerrank.com/pixel-prowess';" ; style=" font-family:
+        <button onclick="window.open('https://www.hackerrank.com/pixel-prowess', '_blank')" style="font-family:
           ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,Liberation Mono, Courier New , monospace; font-size:
           17px; padding: 1em 2.7em; font-weight: 500; background: #1f2937; color: white; border: none; position:
           relative; overflow: hidden; border-radius: 0.6em; cursor: pointer; ">
           <span class=" transition"></span>
           <span class="gradient"></span>
-          <span class="label">Hackerrank</span>
+          <span class="label">HackerRank</span>
         </button>
       </div>
     </div>
